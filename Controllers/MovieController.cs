@@ -1,4 +1,5 @@
-﻿using LumenWorks.Framework.IO.Csv;
+﻿
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieApplication.Data;
 using MovieApplication.Models;
@@ -16,6 +17,9 @@ namespace MovieApplication.Controllers
     public class MovieController : ControllerBase
     {
         private readonly ApplicationDbContext dbContext;
+
+        
+
         public MovieController(ApplicationDbContext _dbContext)
         {
             dbContext = _dbContext;
@@ -38,7 +42,7 @@ namespace MovieApplication.Controllers
         [HttpPut("{id}")]
         public ActionResult<Movie> EditMovie(int id, [FromBody] EditMovie editMovie)
         {
-            var movieToEdit = dbContext.Movies.FirstOrDefault(x => x.Id == id);
+            var movieToEdit = dbContext.Movies.FirstOrDefault(x => x.MovieId == id);
             if (movieToEdit == null) return NotFound();
             movieToEdit.Title = editMovie.Title;
             movieToEdit.Director = editMovie.Director;
@@ -49,7 +53,7 @@ namespace MovieApplication.Controllers
         [HttpDelete("{id}")]
         public ActionResult<Movie> DeleteMovie(int id)
         {
-            var movieToDelete = dbContext.Movies.FirstOrDefault(x => x.Id == id);
+            var movieToDelete = dbContext.Movies.FirstOrDefault(x => x.MovieId == id);
             if (movieToDelete == null) return NotFound();
             dbContext.Movies.Remove(movieToDelete);
             dbContext.SaveChanges();
@@ -66,27 +70,13 @@ namespace MovieApplication.Controllers
         [HttpGet("{id}")]
         public ActionResult<Movie> GetMovie(int id)
         {
-            var Movie = dbContext.Movies.FirstOrDefault(option => option.Id == id);
+            var Movie = dbContext.Movies.FirstOrDefault(option => option.MovieId == id);
             if (Movie != null)
                 return Movie;
             else
                 return NotFound();
         }
 
-        public void AverageRatingCalculation()
-        {
-            
-        }
 
-        public ActionResult csvRead()
-        {
-            var csvTable = new DataTable();
-            using (var csvReader = new CsvReader(new StreamReader(System.IO.File.OpenRead("./CSVFolder/CSVFile.csv")), true))
-            {
-                csvTable.Load(csvReader);
-            }
-        }
-
-        
     }
 }

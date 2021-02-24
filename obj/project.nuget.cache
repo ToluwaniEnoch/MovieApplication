@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dvxVM5VPZoSjPTofZSY0ct9qAzGYvyJEaobqVoiJuddBY6QBk85197NqZ9j6p1zfoh3tZ47ObmINgdcQdThWgg==",
+  "dgSpecHash": "tL4V6IMZ/OL0fwxt5Uv6MbjRBI1VXZzSp9sQ8yK8nD03Klr9JtMxo2BtmnrLQNTMvInZH5lNMkVZobA7iOFYpQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tboy\\source\\repos\\MovieApplication\\MovieApplication\\MovieApplication.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Tboy\\.nuget\\packages\\csvhelper\\23.0.0\\csvhelper.23.0.0.nupkg.sha512",
     "C:\\Users\\Tboy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Tboy\\.nuget\\packages\\lumenworkscsvreader\\4.0.0\\lumenworkscsvreader.4.0.0.nupkg.sha512",
     "C:\\Users\\Tboy\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

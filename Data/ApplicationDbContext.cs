@@ -12,5 +12,6 @@ namespace MovieApplication.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
     }
 }
